@@ -12,19 +12,22 @@
 
     <script type="text/jsx">
         var FirstComponent = React.createClass({
+            travelDestination: function() {
+                    alert(this.props.children);
+            },
             render: function() {
                 return (
-                    <h2>Hi! {this.props.user} likes to travel to {this.props.location}!</h2>
+                    <div>
+                        <h2>Where does {this.props.user} want to go to?</h2>
+                        <a onClick={this.travelDestination} href="#" > Click for answer</a>
+                    </div>
                     );
             }
         });
 
         React.render(
             <div>
-            < FirstComponent user="Mary" location="Rome"/>
-            < FirstComponent user="Scott" location="Paris"/>
-            < FirstComponent user="Robert" location="Melbourne"/>
-            < FirstComponent user="Jane" location="Shanghai"/>
+            < FirstComponent user="Mary">To India.</FirstComponent>
             </div>, 
             document.getElementById('content')
             );
