@@ -191,7 +191,7 @@ Sample Input
 Sample Output
 
 4710194409608608369201743232  
-Note that this result is bigger than 263−1 and hence won't fit in long long int of C++ or a 64-bit integer.
+Note that this result is bigger than 263-1 and hence won't fit in long long int of C++ or a 64-bit integer.
 """
 def hr_allsizes():
 	a = int(raw_input())
@@ -252,7 +252,7 @@ s = raw_input()
 Input Format The first line contains the first name, and the second line contains the last name.
 
 Constraints 
-The length of the first and last name ≤ 10.
+The length of the first and last name <= 10.
 
 Output Format Print the output as mentioned above.
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>React demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script type="text/jsx">
+        var FirstComponent = React.createClass({
+            render: function() {
+                return (
+                    <h2>Hi! {this.props.user} likes to travel to {this.props.location}!</h2>
+                    );
+            }
+        });
+
+        React.render(
+            <div>
+            < FirstComponent user="Mary" location="Rome"/>
+            < FirstComponent user="Scott" location="Paris"/>
+            < FirstComponent user="Robert" location="Melbourne"/>
+            < FirstComponent user="Jane" location="Shanghai"/>
+            </div>, 
+            document.getElementById('content')
+            );
+    </script>
+
+
+</body>
+</html>
