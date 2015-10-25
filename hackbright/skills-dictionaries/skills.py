@@ -336,8 +336,12 @@ def adv_alpha_sort_by_word_length(words):
         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
 
     """
-
-    return []
+    words_length = {}
+    for word in words:
+        words_length.setdefault(len(word), []).append(word)
+    result = [(key, sorted(value)) for key, value in words_length.items()]
+    result.sort(key=lambda x: x[0])
+    return result
 
 
 ##############################################################################
