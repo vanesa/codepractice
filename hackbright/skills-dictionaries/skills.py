@@ -1,5 +1,5 @@
 # To work on the advanced problems, set to True
-ADVANCED = False
+ADVANCED = True
 
 
 def count_unique(input_string):
@@ -129,8 +129,13 @@ def get_sum_zero_pairs(input_list):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
-
-    return []
+    unique = set(input_list)
+    pairs = []
+    for num1 in unique:
+        for num2 in unique:
+            if -num1 == num2 and [num2, num1] not in pairs:
+                pairs.append([num1,num2])
+    return pairs
 
 
 def remove_duplicates(words):
@@ -149,10 +154,11 @@ def remove_duplicates(words):
         >>> sorted(remove_duplicates(
         ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
         ['Rose', 'a', 'is', 'rose']
-
     """
-
-    return []
+    unique = {}
+    for word in words:
+        unique[word] = True
+    return unique.keys()
 
 
 def encode(phrase):
@@ -167,7 +173,19 @@ def encode(phrase):
         >>> encode("You are a beautiful, talented, brilliant, powerful musk ox.")
         'You drp d bpduouful, odlpnopd, brulludno, powprful musk ox.'
     """
-    return ''
+    encoded = ''
+    for character in phrase:
+        if character == "e":
+            encoded = encoded + "p"
+        elif character == "a":
+            encoded = encoded + "d"
+        elif character == "t":
+            encoded = encoded + "o"
+        elif character == "i":
+            encoded = encoded + "u"
+        else:
+            encoded = encoded + character
+    return encoded
 
 
 def sort_by_word_length(words):
@@ -183,8 +201,14 @@ def sort_by_word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
     """
-
-    return []
+    word_lengths = {}
+    for word in words:
+        if len(word) not in word_lengths:
+            word_lengths[len(word)] = []
+        word_lengths[len(word)].append(word)
+    result = [(key, value) for key, value in word_lengths.items()]
+    result.sort(key=lambda x: x[0])
+    return result
 
 
 def get_pirate_talk(phrase):
@@ -229,8 +253,35 @@ def get_pirate_talk(phrase):
         'me swabbie be not a man!'
 
     """
-
-    return ""
+    # import pdb; pdb.set_trace()
+    phrase = phrase.split(" ")
+    pirate = { 
+        "sir": "matey",
+        "hotel": "fleabag inn",
+        "student": "swabbie",
+        "boy": "matey",
+        "madam": "proud beauty",
+        "professor": "foul blaggart",
+        "restaurant": "galley",
+        "your": "yer",
+        "excuse": "arr",
+        "students": "swabbies",
+        "are": "be",
+        "lawyer": "foul blaggart",
+        "the": "th'",
+        "restroom": "head",
+        "my": "me",
+        "hello": "avast",
+        "is": "be",
+        "man": "matey",
+    }
+    new_phrase = ''
+    for word in phrase:
+        if word in pirate:
+            new_phrase = new_phrase + pirate[word] + " "
+        else:
+            new_phrase = new_phrase + word + " "
+    return new_phrase.strip()
 
 # End of skills. See below for advanced problems.
 # To work on them, set ADVANCED=True at the top of this file.
@@ -256,8 +307,18 @@ def adv_get_top_letter(input_string):
     Spaces do not count as letters.
 
     """
-
-    return ''
+    letters = {}
+    top_letter = []
+    input_string = input_string.replace(" ", "")
+    for letter in input_string:
+        if letter in letters:
+            letters[letter] += 1
+        else:
+            letters[letter] = 1
+    for key, value in letters.items():
+        if value is max(letters.values()):
+            top_letter.append(key)
+    return top_letter
 
 
 def adv_alpha_sort_by_word_length(words):
