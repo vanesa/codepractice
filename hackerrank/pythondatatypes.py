@@ -146,6 +146,17 @@ def hr_sets():
     for a in ordered:
         print a
 
+### List Comprehension ####
+
+"""
+
+"""
+
+def hr_list_comprehension():
+    a, b, c, N = [int(raw_input()) for x in range(4)]
+    output = [[x,y,z] for x in range(a+1) for y in range(b+1) for z in range(c+1) if x+y+z!=N]
+    print output
 
 if __name__ == '__main__':
+
     
