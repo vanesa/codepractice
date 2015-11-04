@@ -84,7 +84,7 @@ Sample Output
 
 """
 
-def hr_tuples1(lines, nums):
+def hr_tuples1():
     if not lines:
         lines = raw_input()
         nums = raw_input()
@@ -100,7 +100,52 @@ def hr_tuples2(lines, nums):
     print hash(tuple([int(nums[i]) for i in range(lines)]))
 """
 
+#### Sets ####
+
+"""
+Problem Statement
+
+Lets learn about a new datatype 'sets'! You are given two set of integers M and N and you have to print their symmetric difference in ascending order. The first line of input contains value of M followed by M integers, then value of N followed by N integers. Symmetric difference between M and N mean those values which either exist in M or in N but not in both.
+
+Input Format
+
+Value of M followed by M integers, then value of N followed by N integers.
+
+Output Format
+
+Integers in ascending order, one per line.
+
+Sample Input
+
+4
+2 4 5 9
+4
+2 4 11 12
+Sample Output
+
+5
+9
+11
+12
+"""
+
+def hr_sets():
+    m = int(raw_input())
+    list1 = map(int, raw_input().split())
+    n = int(raw_input())
+    list2 = map(int, raw_input().split())
+    list1 = set(list1)
+    list2 = set(list2)
+    diff1 = list1.difference(list2)
+    diff2 = list2.difference(list1)
+    symmetric_diff = diff1.union(diff2)
+    ordered = []
+    for i in symmetric_diff:
+        ordered.append(i)
+    ordered.sort()
+    for a in ordered:
+        print a
 
 
 if __name__ == '__main__':
-    hr_tuples1(2, '1 2')
+    
