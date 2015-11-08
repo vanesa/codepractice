@@ -44,6 +44,7 @@ def swap_case('HackerRank.com presents "Pythonist 2".'):
 
 
 ##### String Split and Join #####
+
 """
 Problem Statement
 
@@ -79,8 +80,9 @@ this-is-a-string
 """
 
 def split_join():
-	phrase = raw_input()
+	phrase = raw_input("Type in a phrase: ")
 	phrase = phrase.split()
 	print "-".join(phrase)
 
 	if __name__ == '__main__':
+		split_join()
