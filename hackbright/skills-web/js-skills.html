@@ -151,7 +151,11 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var button = document.getElementById("prevent-form-submission-button")
+  button.onclick = function (){
+    button.setAttribute("type", "button");
+    alert("You can't submit this!");
+  }
 </script>
 
 <div class="hint">
