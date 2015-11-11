@@ -63,7 +63,7 @@
   </style>
 </head>
 <body>
-
+<script src="https://code.jquery.com/jquery.js"></script>
 <h1>Skills&mdash;Javascript</h1>
 <p>
   For each numbered problem, fill in the corresponding <code>&lt;script&gt;</code> section in the
@@ -235,7 +235,10 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  $('.tricky-to-find').click(alertMe);
+  function alertMe(evt) {
+  alert("Don't click that, please.");
+}
 </script>
 
 <div class="hint">
@@ -262,7 +265,10 @@
 </fieldset>
 
 <script>
-  // put your code here
+  $('#kittenz-rule').dblclick(switchSource);
+  function switchSource() {
+    $('#kittenz-rule').attr('src', "http://astonish.blog.com/files/2014/05/cute-pups-281.jpg");
+  }
 </script>
 
 <div class="hint">
@@ -295,7 +301,13 @@
 </fieldset>
 
 <script>
-  // put your code here
+  $("#make-a-porcupine").click(makePorcupine);
+  function makePorcupine() {
+    setTimeout(cutePorcupine, 1000);
+    function cutePorcupine () {
+    $('#cute-porcupine-image').attr('src', "http://farm1.static.flickr.com/141/384983205_65d45b0985_o.jpg").fadeIn(2000);
+  }
+  }
 </script>
 
 <div class="hint">
