@@ -156,6 +156,15 @@
     button.setAttribute("type", "button");
     alert("You can't submit this!");
   }
+
+  // or: 
+  // function alertMeAlso(evt) {
+//     evt.preventDefault();
+//     alert("Phew! No submit!");
+// }
+
+// document.getElementById('prevent-form-submission-form').addEventListener(
+//     'submit', alertMeAlso);
 </script>
 
 <div class="hint">
@@ -187,20 +196,22 @@
 <script>
 //  Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+ function reverseString() {
+   var msg = "Porcupines are cute";
+   var newMsg = "";
+   // do some stuff here to reverse that string into a new variable
+   for (var i = msg.length - 1; i >= 0; i--) {
+      var newMsg = newMsg + msg[i];
+   }
+
+   alert(newMsg);
+ }
 
 // Here's a stub of event stuff you could use
 //
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+ var button = document.getElementById('reverse-string-button');
+ button.addEventListener('click', reverseString);
 </script>
 
 
