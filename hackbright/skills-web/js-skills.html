@@ -339,7 +339,19 @@
 </fieldset>
 
 <script>
-  // put your code here
+  function agree(evt) {
+    evt.preventDefault();
+    var food = $('#favorite-food-input').val();
+    $('#agreeable-text').html("I also love " + food + "!");
+  }
+  $('#agreeable-form').on('submit', agree);
+  // OR:
+    //   $('input[type="submit"]').attr("type", "button");
+  //   $('input[type="button"]').click(agreeText);
+  // function agreeText() {
+  //   food = $("input#favorite-food-input").val();
+  //   $("#agreeable-text").html("I also love " + food + "!");
+  // }
 </script>
 
 <div class="hint">
@@ -385,7 +397,28 @@
 </fieldset>
 
 <script>
-  // put your code here
+ var randomNum = Math.floor(Math.floor(Math.random() * 10) + 1)
+ console.log(randomNum);
+  $('#play-guessing-game').on('click', playGame);
+  function playGame() {
+    var guess = parseInt(window.prompt("please type in a number between 1 and 100!"))
+    if (guess == randomNum) {
+      alert("You got it!");
+      window.randomNum = Math.floor(Math.floor(Math.random() * 10) + 1)
+      console.log(randomNum);
+    }
+    else if (guess < randomNum) {
+      alert("Too low!")
+      playGame();
+    }
+    else if (guess > randomNum) {
+      alert("Too high!")
+      playGame();
+    }
+    else {
+    }
+
+  }
 </script>
 
 <div class="hint">
